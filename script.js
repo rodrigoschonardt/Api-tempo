@@ -1,17 +1,28 @@
 
 var city= "Lajeado";
 
+const dados= () => {
+    return fetch('https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&lang=pt_br&appid=a54b6770ba0b0225f20457f9717399a0')
+    .then(resposta =>{
+        return resposta.json()
+    })  
+}
 
-$.getJSON("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&lang=pt_br&appid=a54b6770ba0b0225f20457f9717399a0", function(data){
-    console.log(data);
-
-    var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-
-    var temp = Math.floor(data.main.temp);
-    
+dados()
+.then(data =>{
+    var iconWeather = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+    var tempWeather = Math.floor(data.main.temp);
     var description = data.weather[0].description;
 
-    $('.weather').append(description);
-    $('.icon') .attr('src', icon);
-    $('.temp').append(temp + " graus");
-});
+    weather= document.querySelector(".weather")
+    weather.append(description)
+
+    document.getElementById("icon").src= iconWeather
+
+    temp= document.querySelector(".temp")
+    temp.append(tempWeather + " graus")
+
+})
+
+
+
