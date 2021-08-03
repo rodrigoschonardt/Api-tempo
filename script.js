@@ -13,6 +13,10 @@ dados()
     var iconWeather = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
     var tempWeather = Math.floor(data.main.temp);
     var description = data.weather[0].description;
+    var feelsLikeWeather = Math.floor(data.main.feels_like);
+
+    feelsLike= document.querySelector(".feels_like")
+    feelsLike.append("sensação térmica de " + feelsLikeWeather + " graus");
 
     weather= document.querySelector(".weather")
     weather.append(description)
