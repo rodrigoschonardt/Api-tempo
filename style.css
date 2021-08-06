@@ -5,7 +5,10 @@ body{
 }
 
 .weather-container{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
 }
 .weather{
     font-size: 22px;
@@ -17,11 +20,8 @@ body{
     margin: 0;
     font-weight: bold;
 }
-.seleciona-cidade{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    
+.icon{
+    height: 50px;
+    width: 50px;
 }
+
